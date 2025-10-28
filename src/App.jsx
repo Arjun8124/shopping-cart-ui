@@ -8,10 +8,9 @@ export default function App() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch("http://localhost:8000/products");
+        const res = await fetch("/api/products");
         if (!res.ok) throw new Error("Cannot able to fetch the products data!");
         const data = await res.json();
-        console.log(data);
         setProducts(data);
       } catch (err) {
         setError(err.message);
@@ -25,10 +24,13 @@ export default function App() {
 
   return (
     <>
+      <h1 className="text-4xl text-center font-bold mt-5 underline">
+        🏬 Product Catalog
+      </h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error : {error}</p>}
       {!loading && !error && (
-        <div className="max-w-xl mx-auto rounded-2xl py-7 shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product) => (
             <Product product={product} key={product.id} />
           ))}
