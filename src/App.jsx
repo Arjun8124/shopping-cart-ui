@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Product from "./components/Product";
 import { ProductContext } from "./context/ProductContext";
+
 export default function App() {
   const { loading, error, products } = useContext(ProductContext);
   return (
