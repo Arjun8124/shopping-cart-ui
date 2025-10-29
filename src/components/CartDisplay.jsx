@@ -26,6 +26,7 @@ export default function CartDisplay() {
             <button
               onClick={resetCart}
               className="bg-error hover:bg-red-600 px-4 py-2 rounded-lg text-white font-semibold cursor-pointer transition-all hover:shadow-md flex items-center gap-2"
+              title="Remove all products from the cart!"
             >
               <span className="text-lg">🗑️</span>
               Clear Cart
@@ -78,7 +79,7 @@ export default function CartDisplay() {
                     </div>
 
                     {/* Total Price */}
-                    <div className="text-right min-w-[80px]">
+                    <div className="text-right min-w-\[80px]\">
                       <p className="text-xs text-text-secondary mb-1">Total</p>
                       <span className="font-bold text-xl text-primary">
                         ${(item.price * item.qty).toFixed(2)}
